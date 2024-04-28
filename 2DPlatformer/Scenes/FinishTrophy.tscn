@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhcbgmpq7qby2"]
+
+[ext_resource type="Texture2D" uid="uid://3h6vsdl8t5xd" path="res://Assets/Items/Checkpoints/End/End (Pressed) (64x64).png" id="1_b4gno"]
+[ext_resource type="Script" path="res://Scenes/FinishTrophy.gd" id="1_klxox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hevoi"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1knu"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lptl"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd51f"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi3kh"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1eo3"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08h8k"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_734ff"]
+atlas = ExtResource("1_b4gno")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbw73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hevoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1knu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lptl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd51f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi3kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1eo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08h8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_734ff")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b8vi1"]
+radius = 31.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_klxox")
+
+[node name="Animated2DSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -19)
+scale = Vector2(1.51563, 1.51563)
+sprite_frames = SubResource("SpriteFrames_xbw73")
+frame_progress = 0.277183
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b8vi1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
